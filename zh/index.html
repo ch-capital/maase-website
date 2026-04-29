@@ -7,38 +7,165 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
-        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+        .gradient-text { background: linear-gradient(90deg, #3b82f6, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
     </style>
 </head>
-<body class="bg-white text-slate-900">
-    <nav class="fixed w-full z-50 glass-nav border-b border-gray-100">
+<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed">
+
+    <nav class="fixed w-full z-50 glass-nav border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="font-black text-2xl text-blue-900 tracking-tighter">MAAS</div>
-            <a href="../en/" class="text-xs font-bold px-3 py-1.5 border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all">
-                ENGLISH
-            </a>
+            <div class="flex items-center space-x-2">
+                <span class="font-black text-2xl tracking-tighter text-blue-900">MAAS</span>
+                <span class="text-[10px] bg-blue-900 text-white px-2 py-0.5 rounded font-bold">NASDAQ</span>
+            </div>
+            <div class="flex items-center space-x-8">
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#landscape" class="hover:text-blue-600 transition">业务布局</a>
+                    <a href="#tech" class="hover:text-blue-600 transition">核心技术</a>
+                    <a href="#resources" class="hover:text-blue-600 transition">自然资源</a>
+                </div>
+                <a href="../en/" class="text-xs font-bold px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all">
+                    ENGLISH
+                </a>
+            </div>
         </div>
     </nav>
 
-    <section class="relative pt-48 pb-32 px-6 bg-slate-900 text-center overflow-hidden">
-        <h2 class="text-blue-400 font-mono tracking-[0.3em] text-sm mb-6 uppercase">NASDAQ: MAAS</h2>
-        <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-8">起源于资本，进化于科技</h1>
-        <p class="text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            麦思智能不仅是人工智能的驱动者，更是全场景数字化系统的集成商与运营商。
-        </p>
+    <section class="relative pt-40 pb-24 px-6 bg-slate-900 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#1e40af,transparent_70%)]"></div>
+        </div>
+        <div class="relative max-w-5xl mx-auto text-center">
+            <h2 class="text-blue-400 font-mono tracking-[0.3em] text-sm mb-8 uppercase">Origin in Capital · Evolution in Tech</h2>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-10 leading-tight">
+                麦思智能(NASDAQ: MAAS)起源于资本，进化于科技。
+            </h1>
+            <p class="text-lg md:text-2xl text-slate-300 font-light max-w-4xl mx-auto">
+                我们不仅是人工智能的驱动者，更是全场景数字化系统的集成商与运营商。
+            </p>
+        </div>
     </section>
 
-    <section class="py-24 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">业务布局</h2>
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="p-10 border rounded-[2.5rem]">
-                <div class="text-blue-600 font-bold text-xs mb-4 uppercase">ALGORITHMS</div>
-                <h3 class="text-2xl font-bold mb-4">算法算力</h3>
-                <p class="text-slate-500 text-sm italic leading-relaxed">
-                    “灵言妙语”大模型：低推理成本与高并发处理。
+    <section id="landscape" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex items-center justify-between mb-16">
+            <h2 class="text-3xl font-bold border-l-4 border-blue-600 pl-4 text-slate-800">业务布局</h2>
+            <span class="text-slate-400 font-mono">BUSINESS LANDSCAPE</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="p-10 bg-white rounded-[2rem] border border-slate-100 card-hover transition-all">
+                <div class="text-blue-600 font-bold text-xs mb-4">01 / ALGORITHMS</div>
+                <h3 class="text-2xl font-bold mb-6 text-slate-900">算法算力</h3>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    华智未来的“智慧大脑”与数字底座，为物理世界安装“超级大脑”与“隐形护盾”。
+                </p>
+                <div class="flex flex-wrap gap-4 text-xs font-bold text-slate-400 mb-8 uppercase tracking-widest">
+                    <span>高性能计算</span> • <span>量子级安全</span> • <span>全场景赋能</span>
+                </div>
+                <a href="./technology.html" class="inline-flex items-center text-blue-600 font-bold hover:underline">
+                    跳转至第二页 <span class="ml-2">→</span>
+                </a>
+            </div>
+
+            <div class="p-10 bg-white rounded-[2rem] border border-slate-100 card-hover transition-all">
+                <div class="text-blue-600 font-bold text-xs mb-4">02 / SMART ENERGY</div>
+                <h3 class="text-2xl font-bold mb-6 text-slate-900">智能移动充电</h3>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    “小锂”机器人实现“电找车”的新型充电模式，替代传统“车找桩”。
+                </p>
+                <div class="flex flex-wrap gap-4 text-xs font-bold text-slate-400 mb-8 uppercase tracking-widest">
+                    <span>主动服务</span> • <span>储充一体</span> • <span>灵活部署</span>
+                </div>
+                <a href="./solutions.html" class="inline-flex items-center text-blue-600 font-bold hover:underline">
+                    跳转至第二页 <span class="ml-2">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech" class="py-24 bg-slate-900 text-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-16 text-center">核心技术实力</h2>
+            <div class="grid md:grid-cols-3 gap-12 text-sm">
+                <div class="space-y-6">
+                    <div class="w-12 h-1 bg-blue-500"></div>
+                    <h4 class="text-xl font-bold text-blue-400">灵言妙语大模型</h4>
+                    <p class="text-slate-400 leading-relaxed">
+                        凭借自研的90亿参数MoE架构“灵言妙语”大模型，实现了低推理成本与高并发处理的高商业性价比。
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <div class="w-12 h-1 bg-blue-500"></div>
+                    <h4 class="text-xl font-bold text-blue-400">低温微量润滑 (CW-MQL)</h4>
+                    <p class="text-slate-400 leading-relaxed">
+                        首创零下90度低温微量润滑核心技术，并将其与“5G+边缘计算”深度融合，打造“绿色智造”一体化解决方案。
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <div class="w-12 h-1 bg-blue-500"></div>
+                    <h4 class="text-xl font-bold text-blue-400">锂电多场景应用</h4>
+                    <p class="text-slate-400 leading-relaxed">
+                        融合智能BMS与物联网通信，打造覆盖移动充电、驻车储能、越野玩乐等多场景的锂电产品。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-3xl font-bold mb-4 text-slate-800">珍稀自然资源 · 长期价值沉淀</h2>
+            <div class="w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 bg-slate-50 rounded-3xl hover:bg-white transition-colors duration-300 border border-transparent hover:border-slate-100">
+                <h3 class="text-xl font-bold mb-4 text-slate-900">中参野山参</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    聚焦中国野山参核心原产地资源整合，建立稀缺中药材供给体系，形成具备长期价值的资产壁垒。
                 </p>
             </div>
+            <div class="p-8 bg-slate-50 rounded-3xl hover:bg-white transition-colors duration-300 border border-transparent hover:border-slate-100">
+                <h3 class="text-xl font-bold mb-4 text-slate-900">Glyken 燕窝肽</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    全球最大的燕窝肽生产商，拥有高温水解、物理提取等四大核心技术，构建生物活性多糖蛋白肽应用的护城河。
+                </p>
             </div>
+            <div class="p-8 bg-slate-50 rounded-3xl hover:bg-white transition-colors duration-300 border border-transparent hover:border-slate-100">
+                <h3 class="text-xl font-bold mb-4 text-slate-900">Oriental Grove 青砖茶</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    面向高端消费市场的茶资产运营平台，聚焦青砖茶等稀缺品类，锁定全球茶文化与奢侈消费升级趋势。
+                </p>
+            </div>
+        </div>
     </section>
+
+    <section class="py-24 bg-white px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-12 text-slate-900">关于 MAAS</h2>
+            <div class="space-y-8 text-lg text-slate-600 leading-loose">
+                <p>
+                    我们坚持以“智能科技+资本并购”双引擎驱动，放眼全球，前瞻性地整合优质企业，不断优化与拓宽自身AI 体系的边界与深度。我们致力于加速AI落地应用的进程，将深奥的算法转化为解决实际问题的硬核生产力。
+                </p>
+                <p>
+                    从能源的灵活调度，到智能化商业网络的深度运营，我们通过持续的产业整合，构建起一个从算力底座、智能硬件到全场景服务的闭环进化生态。
+                </p>
+            </div>
+            <div class="mt-16">
+                <a href="./about.html" class="inline-block px-10 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-blue-600 transition-colors shadow-lg">
+                    关于我们 <span class="ml-2">→</span>
+                </a>
+                <p class="text-xs text-slate-400 mt-4">---> 跳转至第四页关于我们</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-slate-100 text-center text-slate-400 text-sm">
+        <p>© 2026 Maase Inc. | NASDAQ: MAAS</p>
+        <p class="mt-2 font-mono uppercase tracking-tighter text-[10px]">Contact: ad@maaseai.com</p>
+    </footer>
+
 </body>
 </html>
