@@ -1,26 +1,17 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const Navbar = ({ lang, setLang }) => {
   return (
-    <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          <div className="flex-shrink-0 font-bold text-2xl text-blue-900">MAAS 麦思智能</div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {['首页', '业务布局', '核心技术', '项目案例', '关于我们'].map((item) => (
-                <a key={item} href={`#${item}`} className="text-gray-600 hover:text-blue-600 px-3 py-2 font-medium transition">
-                  {item}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)}><Menu /></button>
-          </div>
+    <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b">
+      <div className="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+        <div className="font-black text-2xl text-blue-900">MAAS</div>
+        
+        <div className="flex items-center space-x-6">
+          {/* 语言切换按钮 */}
+          <button 
+            onClick={() => setLang(lang === 'zh' ? 'en' : 'zh')}
+            className="px-3 py-1 border border-blue-600 text-blue-600 rounded-full text-xs font-bold hover:bg-blue-600 hover:text-white transition"
+          >
+            {lang === 'zh' ? 'EN' : '中文'}
+          </button>
         </div>
       </div>
     </nav>
