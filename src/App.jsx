@@ -1,20 +1,23 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-// 其他页面可以后续按此模式添加
 
 function App() {
+  const [lang, setLang] = useState('zh'); // 'zh' 为中文, 'en' 为英文
+
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
-        <Navbar />
+        {/* 将语言和切换函数传给导航栏 */}
+        <Navbar lang={lang} setLang={setLang} />
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home lang={lang} />} />
           </Routes>
         </main>
-        <Footer />
+        <Footer lang={lang} />
       </div>
     </Router>
   );
