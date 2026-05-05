@@ -1,1 +1,792 @@
-<img src="https://raw.githubusercontent.com/ch-capital/maase-website/main/images/5.png" alt="智能移动充电示意图" class="w-full h-48 object-cover rounded-xl mb-6">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAAS - 麦思智能 | AI驱动，智创未来</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d82;
+            --secondary: #00a8ff;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部导航 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            left: 0;
+            bottom: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Banner 区域 */
+        .banner {
+            background: linear-gradient(135deg, #0056b3 0%, #00a8ff 100%);
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        /* 通用部分样式 */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            height: 100%;
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        /* 业务布局部分 */
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .business-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .business-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--secondary);
+        }
+        
+        .business-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 核心技术部分 */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .tech-item {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .tech-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* 项目案例部分 */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .project-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+        }
+        
+        .project-header h3 {
+            font-size: 1.3rem;
+        }
+        
+        .project-body {
+            padding: 25px;
+        }
+        
+        /* 团队部分 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-card {
+            text-align: center;
+            padding: 25px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        /* 合作伙伴部分 */
+        .partners {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .partner-logo {
+            width: 150px;
+            height: 80px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-weight: 600;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.8;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .banner h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--primary);
+                cursor: pointer;
+            }
+            
+            .banner {
+                padding: 150px 0 80px;
+            }
+            
+            .banner h1 {
+                font-size: 2.3rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .banner h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-brain"></i> MAAS
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#business">业务布局</a></li>
+                    <li><a href="#tech">核心技术</a></li>
+                    <li><a href="#projects">项目案例</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner 区域 -->
+    <section class="banner" id="home">
+        <div class="container">
+            <h1>麦思智能 (NASDAQ: MAAS)</h1>
+            <p class="tagline">起源于资本，进化于科技</p>
+            <p>我们不仅是人工智能的驱动者，更是全场景数字化系统的集成商与运营商。</p>
+            <p>Maase Inc. (NASDAQ: MAAS) built with capital and honed by technology, is an AI trailblazer, an end-to-end digital system integrator and operator.</p>
+            <a href="#business" class="btn" style="margin-top: 20px;">探索业务布局</a>
+        </div>
+    </section>
+
+    <!-- 业务布局 -->
+    <section id="business">
+        <div class="container">
+            <div class="section-title">
+                <h2>业务布局</h2>
+                <p>以智能科技为核心，构建全场景数字化生态系统</p>
+            </div>
+            
+            <div class="business-grid">
+                <div class="business-card">
+                    <h3>算法算力</h3>
+                    <p>华智未来的"智慧大脑"与数字底座，为物理世界安装"超级大脑"与"隐形护盾"。</p>
+                    <p>高性能计算 · 量子级安全 · 全场景赋能</p>
+                    <p style="margin-top: 15px; font-style: italic;">Algorithms & Computing Power</p>
+                </div>
+                
+                <div class="business-card">
+                    <h3>智能移动充电</h3>
+                    <p>"小锂"机器人实现"电找车"的新型充电模式，替代传统"车找桩"。</p>
+                    <p>主动服务 · 储充一体 · 灵活部署</p>
+                    <p style="margin-top: 15px; font-style: italic;">Intelligent Mobile Charging</p>
+                </div>
+                
+                <div class="business-card">
+                    <h3>专利技术</h3>
+                    <p>凭借自研的90亿参数MoE架构"灵言妙语"大模型，实现了低推理成本与高并发处理的高商业性价比。</p>
+                    <p style="margin-top: 15px; font-style: italic;">Proprietary Technology</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心技术 -->
+    <section id="tech" style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心技术</h2>
+                <p>以技术人才为核心驱动，构建从算力底座到场景应用的闭环技术体系</p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>灵言妙语大模型</h4>
+                    <p>自研的90亿参数MoE架构大模型，动态激活专家网络，显著降低推理成本与部署门槛，实现高商业性价比。</p>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>低温微量润滑 (CW-MQL)</h4>
+                    <p>国内首台零下90度冷风射流机与微米级微量润滑系统，结合5G+边缘计算实现智能工业管控。</p>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>小锂能源技术</h4>
+                    <p>以磷酸铁锂材料体系为基础，融合智能BMS、模块化集成、物联网通信等前沿技术。</p>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>极致安全技术</h4>
+                    <p>从电芯、结构、系统三个层面构建全方位防护体系，热失控触发温度超过500℃。</p>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>超长寿命技术</h4>
+                    <p>循环寿命大于等于4000次（80%容量保持率），是铅酸的5-8倍。</p>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>智能网联技术</h4>
+                    <p>全时在线，实时上传数据。APP远程掌控，OTA空中升级，设备越用越聪明。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目案例 -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>项目案例</h2>
+                <p>赋能千行百业，驱动数字化转型与智能化升级</p>
+            </div>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>项目一：赋能智慧矿山</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>为新疆某大型矿业投资公司打造"AI反三违平台"，融合计算机视觉技术与矿区监管规则，构建智能识别、实时预警、分析追溯于一体的安全管理体系。</p>
+                        <p style="margin-top: 15px; font-weight: 500;">关键技术：计算机视觉、AI感知平台、多源异构算法集成</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>项目二：夯实算力底座</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>与重庆市区块链科技公司达成5年算力技术服务合作，提供以NVIDIA A100 SXM4 80GB为核心配置的算力支撑，保障客户业务创新与规模化拓展。</p>
+                        <p style="margin-top: 15px; font-weight: 500;">关键技术：高性能计算、分布式算力、长期运维支持</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>项目三：辅助数字转型</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>携手重庆工业物联网企业落地"数字双碳签署系统"，为客户定制开发高度集成、安全合规的双碳业务流转与文件签署平台，提供3年免费维保服务。</p>
+                        <p style="margin-top: 15px; font-weight: 500;">关键技术：数字双碳系统、可视化业务平台、精细化权限管控</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于我们</h2>
+                <p>坚持"智能科技+资本并购"双引擎驱动，构建从算力底座到全场景服务的闭环进化生态</p>
+            </div>
+            
+            <div class="card">
+                <p>麦思智能起源于资本，进化于科技。我们不仅是人工智能的驱动者，更是全场景数字化系统的集成商与运营商。</p>
+                <p style="margin-top: 20px;">我们坚持以"智能科技+资本并购"双引擎驱动，通过在全球范围内前瞻性地整合优质企业，不断优化与拓宽自身AI体系的边界与深度。我们致力于加速AI落地应用的进程，将深奥的算法转化为解决实际问题的硬核生产力。</p>
+                <p style="margin-top: 20px;">从能源的灵活调度到智能化商业网络的深度运营，我们通过持续的产业整合，构建起一个从算力底座、智能硬件到全场景服务的闭环进化生态。</p>
+                <p style="margin-top: 20px; font-weight: 600; color: var(--primary);">麦思智能，致力于打破智能科技与场景的壁垒，让未来生活在智能化中获得自由。</p>
+                
+                <div style="margin-top: 30px; padding: 20px; background: rgba(0, 86, 179, 0.05); border-radius: 8px;">
+                    <p style="font-style: italic; color: var(--primary-dark);">MAAS, built with capital and honed by technology, is an AI trailblazer, an end-to-end digital system integrator and operator.</p>
+                    <p style="font-style: italic; color: var(--primary-dark); margin-top: 10px;">MAAS bridges the gap between technology and real-world application, unlocking a free life.</p>
+                </div>
+            </div>
+            
+            <!-- 团队介绍 -->
+            <div style="margin-top: 60px;">
+                <h3 style="text-align: center; margin-bottom: 40px; color: var(--primary);">核心团队</h3>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>李志峰</h4>
+                        <p>中国投资协会算力和存储研究中心副主任、渝港科创企业发展联盟联席主席</p>
+                        <p style="margin-top: 10px; color: var(--gray); font-size: 0.9rem;">量子物理学博士，生物物理学博士后</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>杨俊</h4>
+                        <p>企业级支付结算、产业金融、产业数字化以及AI+产业专家</p>
+                        <p style="margin-top: 10px; color: var(--gray); font-size: 0.9rem;">深耕产业互联网、数字化领域多年</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>陈煜</h4>
+                        <p>首席AI算法架构师、西南智算研究院院长</p>
+                        <p style="margin-top: 10px; color: var(--gray); font-size: 0.9rem;">拥有13年产品管理和创业经验，跨界创新型企业家</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作伙伴 -->
+    <section id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>合作伙伴</h2>
+                <p>与行业领先企业携手，共同推动AI技术与产业数字化发展</p>
+            </div>
+            
+            <div class="partners">
+                <div class="partner-logo">合作伙伴Logo 1</div>
+                <div class="partner-logo">合作伙伴Logo 2</div>
+                <div class="partner-logo">合作伙伴Logo 3</div>
+                <div class="partner-logo">合作伙伴Logo 4</div>
+                <div class="partner-logo">合作伙伴Logo 5</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MAAS 麦思智能</h3>
+                    <p>我们不仅是人工智能的驱动者，更是全场景数字化系统的集成商与运营商。</p>
+                    <p>我们坚持以"智能科技+资本并购"双引擎驱动，放眼全球，前瞻性地整合优质企业，不断优化与拓宽自身AI体系的边界与深度。</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>核心业务</h3>
+                    <p>• 算法算力与AI基础设施</p>
+                    <p>• 智能移动充电解决方案</p>
+                    <p>• 专利技术与大模型研发</p>
+                    <p>• 数字双碳与产业智能化</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> Email: ad@maaseai.com</p>
+                        <p><i class="fas fa-globe" style="margin-right: 10px;"></i> 官网: https://www.maaseai.com</p>
+                        <p><i class="fas fa-newspaper" style="margin-right: 10px;"></i> 新闻动态: https://www.maaseai.com/news/announcement/496</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 麦思智能 (Maase Inc.). 版权所有. NASDAQ: MAAS</p>
+                <p style="margin-top: 10px;">起源于资本，进化于科技 | Built with capital and honed by technology</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 移动端菜单切换
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+            
+            // 窗口大小变化时重置菜单显示
+            window.addEventListener('resize', () => {
+                if(window.innerWidth > 768) {
+                    navLinks.style.display = 'flex';
+                } else {
+                    navLinks.style.display = 'none';
+                }
+            });
+        }
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
